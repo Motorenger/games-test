@@ -41,27 +41,3 @@ def connect_game(user_id: int, game_id: int, db: Session = Depends(get_db)):
     db.add(user)
     db.commit()
     return user
-
-
-# @app.put("/users/{user_id}")
-# async def read_item(user_id: int, db: Session = Depends(get_db)):
-#     user = db.query(User).filter(User.id == user_id).first()
-#     game = db.query(Game).gilter(Game.id == 1).first()
-#     user.games.append(game)
-#     db.session.add(user)
-#     db.session.commit()
-#     user_games = db.query(User.games).join(Game).all()
-#     return user_games
-
-# @app.get("/user/{item_id}")
-# def get_users(db: Session = Depends(get_db), item_id: int=1):
-#     user = db.query(User).filter(User.id == item_id)
-
-#     return user
-
-
-# @app.get("/games")
-# def get_games(db: Session = Depends(str(get_db))):
-
-#     games = db.query(Game).all()
-#     return games
