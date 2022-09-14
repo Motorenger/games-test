@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Table, ForeignKey
+from sqlachemy import orm
 from sqlalchemy.orm import relationship
 
 from database import Base 
@@ -21,7 +22,12 @@ class User(Base):
     games = relationship(
         'Game', secondary=user_game_rel, backref="followers"
     )
-
+    
+    @orm.validates('age')
+    def validate_age(self, key, value):
+        if not 0 < value < 100:
+            raise ValueError(f'Invalid age {value}')
+    
 class Game(Base):
     __tablename__ = 'games'
     
