@@ -1,8 +1,9 @@
 from sqlalchemy import Column, Integer, String, Table, ForeignKey
-from sqlachemy import orm
 from sqlalchemy.orm import relationship
+from sqlachemy import orm
 
 from database import Base 
+
 
 user_game_rel = Table(
     "association",
